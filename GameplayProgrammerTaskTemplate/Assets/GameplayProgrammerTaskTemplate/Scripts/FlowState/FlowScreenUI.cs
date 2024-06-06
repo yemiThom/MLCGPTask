@@ -1,0 +1,10 @@
+﻿using UnityEngine;
+
+/// <summary>
+/// Base class you should inherit your UI screens from
+/// </summary>
+public abstract class FlowScreenUI : MonoBehaviour
+{
+    public abstract void UpdateUI();
+    public abstract void DestroyUI();
+}
