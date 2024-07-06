@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Task = System.Threading.Tasks.Task;
 
@@ -18,6 +20,7 @@ public class FSPoker : FlowState
     private CardBacksDataObject m_cardBacksData;
     
     private PlayerData[] m_players;
+    private List<PlayerUIData> m_playerUIData;
     private CardBack m_cardBack;
     private PokerPhase m_currentPhase;
     private Pot m_pot;
@@ -43,11 +46,26 @@ public class FSPoker : FlowState
     {
         m_ui = m_uiManager.LoadUIScreen<TexasHoldemPokerUI>("UI/Screens/TexasHoldemPokerUI", this);
 
+        m_playerUIData = Resources.LoadAll<PlayerUIData>("Data/PlayerUIData").ToList();
+
+        Debug.Log($"Player UI Data count: {m_playerUIData.Count}");
+
         m_players = new PlayerData[k_playerCount];
 
         for (int i = 0; i < m_players.Length; i++)
         {
-            m_players[i].Name = $"player{i}";
+            
+
+            if (i == 0)
+                m_players[i].Name = $"Player";
+            else
+            {
+                var pUI = m_playerUIData[Random.Range(0, m_playerUIData.Count)];
+                m_players[i].Name = pUI.PlayerName;
+                m_players[i].Profile = pUI.PlayerSprite;
+                m_playerUIData.Remove(pUI);
+            }
+
             m_players[i].ActiveInRound = true;
             m_players[i].Currency = k_buyIn;
             m_players[i].BetState = BetState.In;

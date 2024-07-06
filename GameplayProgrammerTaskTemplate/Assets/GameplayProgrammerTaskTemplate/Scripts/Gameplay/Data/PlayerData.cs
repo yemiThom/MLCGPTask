@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 /// <summary>
 /// Dynamic data describing a commander participant in a poker battle.
@@ -6,6 +7,7 @@ using System;
 [Serializable]
 public struct PlayerData
 {
+    public Sprite Profile;
     public string Name;
     public int Id;
     public int Currency;

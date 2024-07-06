@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class CardHandUI : MonoBehaviour
 {
     [SerializeField]
+    private Image m_characterProfile;
+    [SerializeField]
     private TextMeshProUGUI m_characterName;
     [SerializeField]
     private TextMeshProUGUI m_currencyText;
@@ -13,9 +15,11 @@ public class CardHandUI : MonoBehaviour
 
     private CardHand m_cardHand;
     
-    public void SetCharacter(string characterName)
+    public void SetCharacter(string characterName, Sprite characterProfile = null)
     {
         m_characterName.text = characterName;
+        if(characterProfile != null)
+            m_characterProfile.sprite = characterProfile;
     }
     
     public void SetCurrencyText(int currency)

@@ -659,6 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9949e114f69cdb847a600c5ec2c0086c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_characterProfile: {fileID: 2898423145864090269}
   m_characterName: {fileID: 4185451994688347863}
   m_currencyText: {fileID: 5041748804262216802}
   m_cards:

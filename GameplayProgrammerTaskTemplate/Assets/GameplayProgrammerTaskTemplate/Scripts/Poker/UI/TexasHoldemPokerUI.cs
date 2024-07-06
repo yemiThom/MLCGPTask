@@ -31,16 +31,16 @@ public class TexasHoldemPokerUI : FlowScreenUI
         
         for (int i = 0; i < participants.Length; i++)
         {
-            SpawnHand(i, participants[i].Name);
+            SpawnHand(i, participants[i].Name, participants[i].Profile);
         }
         
         SetPotCurrency(0);
     }
 
-    public void SpawnHand(int spawnZone, string name)
+    public void SpawnHand(int spawnZone, string name, Sprite profile = null)
     {
         CardHandUI handUI = Instantiate(m_handPrefab, m_handZones[spawnZone]);
-        handUI.SetCharacter(name);
+        handUI.SetCharacter(name, profile);
         
         m_cardHands.Add(handUI);
     }
@@ -60,7 +60,7 @@ public class TexasHoldemPokerUI : FlowScreenUI
     
     public void SetPotCurrency(int value)
     {
-        m_potValue.text = $"£{value.ToString()}";
+        m_potValue.text = $"£{value}";
     }
     
     public void SetCardsInTable(CardTable cardTable)
