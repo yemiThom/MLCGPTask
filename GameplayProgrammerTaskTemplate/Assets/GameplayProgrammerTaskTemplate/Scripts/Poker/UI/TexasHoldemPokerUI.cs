@@ -60,7 +60,7 @@ public class TexasHoldemPokerUI : FlowScreenUI
     
     public void SetPotCurrency(int value)
     {
-        m_potValue.text = value.ToString();
+        m_potValue.text = $"£{value.ToString()}";
     }
     
     public void SetCardsInTable(CardTable cardTable)

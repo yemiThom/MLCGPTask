@@ -20,7 +20,7 @@ public class CardHandUI : MonoBehaviour
     
     public void SetCurrencyText(int currency)
     {
-        m_currencyText.text = currency.ToString();
+        m_currencyText.text = $"£{currency}";
     }
     
     public void SetCards(CardHand cardHand, Sprite cardBack, bool show)
