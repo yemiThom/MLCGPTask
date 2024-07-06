@@ -294,9 +294,11 @@ public class FSPoker : FlowState
                 break;
             case "increaseBet":
                 m_pot.m_consideredBetValue = Mathf.Min(m_players[m_currentBetId].Currency,m_pot.m_consideredBetValue + m_pot.m_currentBlindValue);
+                m_ui.UserUI.UpdateCurrencyValue(m_pot.m_consideredBetValue);
                 break;
             case "decreaseBet":
                 m_pot.m_consideredBetValue = Mathf.Max(m_pot.m_currentBlindValue,m_pot.m_consideredBetValue - m_pot.m_currentBlindValue);
+                m_ui.UserUI.UpdateCurrencyValue(m_pot.m_consideredBetValue);
                 break;
             case "resetBet":
                 m_pot.m_consideredBetValue = m_pot.m_currentBlindValue;
