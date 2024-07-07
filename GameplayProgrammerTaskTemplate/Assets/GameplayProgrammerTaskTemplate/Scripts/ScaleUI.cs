@@ -22,10 +22,10 @@ public class ScaleUI : MonoBehaviour
     {
         _scaleDuration = Random.Range(_minScaleDuration, _maxScaleDuration);
         _scaleRate = Random.Range(_minScaleRate, _maxScaleRate);
-        ScaleGameObject();
+        //ScaleGameObject();
     }
 
-    private void ScaleGameObject()
+    public void ScaleGameObject()
     {
         transform.DOScale(_scaleRate, _scaleDuration)
                  .SetEase(Ease.InOutQuad) // Set the easing function to InOutQuad for smoother animation
