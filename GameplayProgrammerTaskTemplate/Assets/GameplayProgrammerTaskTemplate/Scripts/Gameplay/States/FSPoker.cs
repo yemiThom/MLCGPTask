@@ -141,6 +141,7 @@ public class FSPoker : FlowState
         await Task.Delay(1000);
 
         string allWinnersText = "";
+        bool spawnConfetti = false;
 
         for (int i = 0; i < bestHand.Count; i++)
         {
@@ -150,6 +151,9 @@ public class FSPoker : FlowState
 
             m_players[bestHand[i]].Currency += m_pot.m_potValue / bestHand.Count;
             m_ui.SetHandsCurrency(bestHand[i], m_players[bestHand[i]].Currency);
+
+            if (m_players[bestHand[i]].Name.Contains("Player"))
+                spawnConfetti = true;
         }
         
         if(bestHand.Count > 1)
@@ -164,6 +168,9 @@ public class FSPoker : FlowState
         await Task.Delay(3000);
 
         m_ui.ToggleTableResults(true);
+
+        if (spawnConfetti)
+            m_ui.SpawnConfetti();
 
         await Task.Delay(6000);
 

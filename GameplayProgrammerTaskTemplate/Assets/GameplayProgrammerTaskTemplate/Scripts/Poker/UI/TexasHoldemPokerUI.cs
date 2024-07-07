@@ -26,6 +26,9 @@ public class TexasHoldemPokerUI : FlowScreenUI
     private TextMeshProUGUI m_winnerResultText;
     [SerializeField]
     private TextMeshProUGUI m_bestHandText;
+
+    [SerializeField]
+    private GameObject _confettiPrefab;
     
     public UserUI UserUI;
 
@@ -89,6 +92,12 @@ public class TexasHoldemPokerUI : FlowScreenUI
     public void ToggleTableResults(bool showResults)
     {
         m_tableResults.gameObject.SetActive(showResults);
+    }
+
+    public void SpawnConfetti()
+    {
+        if (_confettiPrefab != null)
+            Instantiate(_confettiPrefab, Vector3.zero, Quaternion.identity);
     }
 
     public void EnableUserUi()

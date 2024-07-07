@@ -2451,6 +2451,7 @@ MonoBehaviour:
   m_tableResults: {fileID: 8137373848601089124}
   m_winnerResultText: {fileID: 8462238047231940662}
   m_bestHandText: {fileID: 2266794139643358446}
+  _confettiPrefab: {fileID: 2214695621432951471, guid: 1bb18223db3ce6942be9bcfe99692e26, type: 3}
   UserUI: {fileID: 393024745276345530}
 --- !u!114 &2267336574924210832
 MonoBehaviour:
@@ -2478,8 +2479,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _whiteTilePrefab: {fileID: 4798780572254599645, guid: a38f3881b04eadd4fa463c242c845949, type: 3}
   _blackTilePrefab: {fileID: 4909798071913575250, guid: b72097e7fd7be4f40b8637abd26c6db3, type: 3}
-  _gridWidth: 25
-  _gridHeight: 25
+  _gridWidth: 26
+  _gridHeight: 26
   _tileSize: 1
   _scrollSpeed: 0.2
 --- !u!224 &2431576785130437685 stripped
