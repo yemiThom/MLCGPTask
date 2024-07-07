@@ -2420,6 +2420,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5751537466865084301, guid: 67820940a308b9d47b1ae3d343897260, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2267336574924210832}
+    - targetCorrespondingSourceObject: {fileID: 5751537466865084301, guid: 67820940a308b9d47b1ae3d343897260, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5753830194427862105}
   m_SourcePrefab: {fileID: 100100000, guid: 67820940a308b9d47b1ae3d343897260, type: 3}
 --- !u!1 &2431576785130437681 stripped
 GameObject:
@@ -2461,6 +2464,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d490974c8d5d7469214b1e91534b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5753830194427862105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2431576785130437681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b31366e4ca449f44baf32d4cecca423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _whiteTilePrefab: {fileID: 4798780572254599645, guid: a38f3881b04eadd4fa463c242c845949, type: 3}
+  _blackTilePrefab: {fileID: 4909798071913575250, guid: b72097e7fd7be4f40b8637abd26c6db3, type: 3}
+  _gridWidth: 25
+  _gridHeight: 25
+  _tileSize: 1
+  _scrollSpeed: 0.2
 --- !u!224 &2431576785130437685 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5751537466865084297, guid: 67820940a308b9d47b1ae3d343897260, type: 3}
