@@ -17,6 +17,8 @@ public class TexasHoldemInteractionManager
     public CardTable m_cardTable;
     private Deck m_deck;
 
+    private TexasHoldemPokerUI m_pokerUI;
+
     public TexasHoldemInteractionManager(Deck deck, int playerNum)
     {
         m_deck = deck;
@@ -59,6 +61,11 @@ public class TexasHoldemInteractionManager
         m_cardTable = new CardTable(k_tableTotalCards);
     }
 
+    public void SetTexasPokerUI(TexasHoldemPokerUI pokerUI)
+    {
+        m_pokerUI = pokerUI;
+    }
+
     public List<int> GetBestHand()
     {
         uint bestHandValue = uint.MinValue;
@@ -67,11 +74,11 @@ public class TexasHoldemInteractionManager
         //Get Table Card string
         string tableString = string.Empty;
         Card[] tableCards = m_cardTable.GetCards();
-        tableString = tableCards.Aggregate(tableString, (current, t) => current + $"{t.ToString()} ");
+        tableString = tableCards.Aggregate(tableString, (current, t) => current + $"{t} ");
         string description = string.Empty;;
         for (int i = 0; i < m_cardHand.Length; i++)
         {
-            string pocketString = m_cardHand[i].Cards.Aggregate(string.Empty, (current, t) => current + $"{t.ToString()} ");
+            string pocketString = m_cardHand[i].Cards.Aggregate(string.Empty, (current, t) => current + $"{t} ");
             pocketString.Remove(pocketString.Length - 1);
             
             ulong handMask = Hand.ParseHand(tableString + pocketString);
@@ -91,6 +98,7 @@ public class TexasHoldemInteractionManager
 
         
         Debug.Log(description);
+        m_pokerUI.SetBestHandText(description);
         return bestHandIds;
     }
 }

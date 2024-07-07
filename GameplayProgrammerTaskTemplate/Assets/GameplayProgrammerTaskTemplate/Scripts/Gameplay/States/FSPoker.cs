@@ -46,9 +46,9 @@ public class FSPoker : FlowState
     {
         m_ui = m_uiManager.LoadUIScreen<TexasHoldemPokerUI>("UI/Screens/TexasHoldemPokerUI", this);
 
-        m_playerUIData = Resources.LoadAll<PlayerUIData>("Data/PlayerUIData").ToList();
+        m_texasHoldemInteractionManager.SetTexasPokerUI(m_ui);
 
-        Debug.Log($"Player UI Data count: {m_playerUIData.Count}");
+        m_playerUIData = Resources.LoadAll<PlayerUIData>("Data/PlayerUIData").ToList();
 
         m_players = new PlayerData[k_playerCount];
 
@@ -140,12 +140,34 @@ public class FSPoker : FlowState
         var bestHand = m_texasHoldemInteractionManager.GetBestHand();
         await Task.Delay(1000);
 
+        string allWinnersText = "";
+
         for (int i = 0; i < bestHand.Count; i++)
         {
             Debug.Log($"Best Hand: {m_players[bestHand[i]].Name}");
+
+            allWinnersText += $"{m_players[bestHand[i]].Name}!\n";
+
             m_players[bestHand[i]].Currency += m_pot.m_potValue / bestHand.Count;
             m_ui.SetHandsCurrency(bestHand[i], m_players[bestHand[i]].Currency);
         }
+        
+        if(bestHand.Count > 1)
+        {
+            m_ui.SetWinnerResultText($"Joint Winners!\n{allWinnersText}");
+        }
+        else
+        {
+            m_ui.SetWinnerResultText($"Winner Winner!\n{allWinnersText}");
+        }
+
+        await Task.Delay(3000);
+
+        m_ui.ToggleTableResults(true);
+
+        await Task.Delay(6000);
+
+        m_ui.ToggleTableResults(false);
 
         m_deck.ResetDeck();
         m_ui.Reset();

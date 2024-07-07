@@ -18,6 +18,14 @@ public class TexasHoldemPokerUI : FlowScreenUI
     
     [SerializeField]
     private CardHandUI m_handPrefab;
+
+    [SerializeField]
+    private Transform m_tableResults;
+
+    [SerializeField]
+    private TextMeshProUGUI m_winnerResultText;
+    [SerializeField]
+    private TextMeshProUGUI m_bestHandText;
     
     public UserUI UserUI;
 
@@ -66,6 +74,21 @@ public class TexasHoldemPokerUI : FlowScreenUI
     public void SetCardsInTable(CardTable cardTable)
     {
         m_cardTable.SetCards(cardTable);
+    }
+
+    public void SetWinnerResultText(string resultText)
+    {
+        m_winnerResultText.text = resultText;
+    }
+
+    public void SetBestHandText(string bestHandText)
+    {
+        m_bestHandText.text = bestHandText;
+    }
+
+    public void ToggleTableResults(bool showResults)
+    {
+        m_tableResults.gameObject.SetActive(showResults);
     }
 
     public void EnableUserUi()
